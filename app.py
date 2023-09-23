@@ -1,13 +1,33 @@
-from datetime import datetime
 from flask import Flask, render_template,url_for,flash,redirect
-from flask_sqlalchemy import SQLAlchemy
-
+from models import db,User, Post
+from blueprint.about import about_page
+from blueprint.home import home_page
 
 # 
 app=Flask(__name__)
+app.register_blueprint(about_page)
+app.register_blueprint(home_page)
 app.config['SECRET_KEY']='secret'
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///site.db'
-db=SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///blogdb.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
+
+# @app.before_first_request
+# def create_table():
+#     db.create_all()
+
+with app.app_context():
+    db.create_all()
+
+
+# https://bunq-templatesyard.blogspot.com/
+
+
+# the end
+
+# setting up routes
+
+
 
 
 if __name__ == '__main__':
