@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, redirect, render_template,url_for,flash,session,request
+from flask import Flask, Blueprint, redirect, render_template,url_for,flash,request,session as newsession
 from forms import PostForm
 from werkzeug.utils import secure_filename
 from models import Post,db,Category
@@ -25,11 +25,13 @@ def allowed_file(filename):
         
 @addblog_page.route("/addblog",methods=['GET','POST'])
 def addblog():
+    user= newsession.get('user_id')
     cat=Category.query.all()
+    post=Post.query.filter_by(user_id=user).all()
     blogform=PostForm()
     if blogform.validate_on_submit():
         
-        user=session['user_id'],
+        
         # slug
         slug=blogform.title.data.lower()
         slug=slug.replace(' ','-')
@@ -60,7 +62,7 @@ def addblog():
             pass
         pass
     else:
-        return render_template("admin/addblog.html",blogform=blogform,cat=cat)
+        return render_template("admin/addblog.html",blogform=blogform,cat=cat,post=post)
     
     
    

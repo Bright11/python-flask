@@ -121,3 +121,10 @@
     padding: 8px;
     border-radius: 8px;
 }
+.myblog-img img{
+    width: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+

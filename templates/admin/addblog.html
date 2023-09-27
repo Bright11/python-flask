@@ -43,18 +43,33 @@
             <thead>
               <tr>
                 <th scope="col">Name</th>
+                <th scope="col">Image</th>
                 <th scope="col">Update</th>
                 <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
+              {% for p in post %}
+              <tr>
+                <td>{{p.title}}</td>
+                <td class="myblog-img">
+                  <img src="{{ url_for('static', filename='blogsimg/' + p.image) }}" alt="Blog image">
+                </td>
+                <td><a href="">Update</a></td>
+                <td><a href="">Delete</a></td>
+              </tr>
+              {% endfor %}
+             {#
+              {% for c in cat %}
+              <td>{{ c.name }}</td>
               
-           
-            
-             
+              {% for p in c.posts %}
+                <td>{{ p.title }}</td>
+              {% endfor %}
+              
+            {% endfor %}
+             #}
                 
-              
-             
             </tbody>
           </table>
     </div>
