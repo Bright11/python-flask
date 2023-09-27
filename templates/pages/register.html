@@ -1,0 +1,50 @@
+{% extends 'layouts/based.html' %}
+
+
+{% block content %}
+
+<div class="container-register">
+    <div class="register-div">
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+        </div>
+        <form class="loginform registerform" action="" enctype="multipart/form-data" method="post">
+            {{ form.csrf_token }}
+            {{ form.username.label }}
+            {{ form.username }}
+            {{ form.email.label }}
+            {{ form.email }}
+            {{ form.password.label }}
+            {{ form.password }}
+            {{ form.confirm_password.label }}
+            {{ form.confirm_password }}
+            {{ form.image.label }}
+            {{ form.image }}
+            {{ form.submit }}
+            <button type="button" class="registerbtn" onclick="loginpopup()">Already have an account? Login</button>
+        </form>
+
+        {# login#}
+        <form class="loginform" action="{{ url_for('login_form.login') }}" enctype="multipart/form-data" method="post">
+            {{ form.csrf_token }}
+            {{ form.email.label }}
+            {{ form.email }}
+            {{ form.password.label }}
+            {{ form.password }}
+            {{ form.submit }}
+            <button type="button" class="registerbtn" onclick="loginpopup()">Don't have an account? Register</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock  %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <script src="https://kit.fontawesome.com/0560d0caf7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/bootstrap.css') }}">
+</head>
+<body>
+    {% include "layouts/nav.html" %}
+ 
+   
+   <div class="adminsetting-div">
+    <div class="site-laylotdiv">
+        <div class="sidebardiv">
+          {% include "admin/sidebar.html" %}
+        </div>
+        <div class="admin-main">
+            {% include 'admin/admintopbar.html' %}
+            {% block content %}
+            {% endblock  %}
+        </div>
+    </div>
+</div>
+   
+
+   
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>

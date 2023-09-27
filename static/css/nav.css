@@ -7,8 +7,8 @@ body{
     /* font-family: 'Roboto', sans-serif; */
 }
 li,a{
-    list-style: none;
-    text-decoration: none;
+    list-style: none !important;
+    text-decoration: none !important;
 }
 .nav-top{
     margin-bottom: 30px;
@@ -32,3 +32,64 @@ ul{
     align-items: center;
     justify-content: space-between;
 }
+/* loginform */
+.register-div{
+    position: relative;
+}
+.loginform{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.loginform input{
+    width: 50%;
+    padding: 8px;
+    outline: none;
+    border-radius: 6px;
+}
+
+.loginform input[type=submit] {
+    background-color: #53296B !important;
+    margin-top: 8px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: capitalize;
+    border: none;
+    cursor: pointer;
+}
+
+.registerbtn{
+    border: none;
+    color: black;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.registerform{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+   
+}
+.openform{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+

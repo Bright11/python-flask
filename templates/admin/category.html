@@ -1,0 +1,53 @@
+{% extends 'admin/layout/adminbased.html' %}
+
+{% block content %}
+<div class="add-item-form-div">
+    <div class="table-form">
+        <button class="addformbtn" onclick="openform()">Clos</button>
+    <div class="addform-form">
+     
+        <form action="" method="post">
+         {% with messages=get_flashed_messages() %}
+         
+         {% if messages %}
+          
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+            
+         {% endif %}
+          {% endwith %} 
+          
+         {{ catform.csrf_token }} 
+            {{ catform.name.label }}
+            {{ catform.name }}
+            {{ catform.submit }}
+        </form>
+    </div>
+    <div class="table-div">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              {% for cat in category %}
+              <tr>
+                <td>{{cat.name}}</td>
+                <td><a href="">Update</a></td>
+                <td><a href="">Delete</a></td>
+              </tr>
+              {% endfor %}
+                
+              
+             
+            </tbody>
+          </table>
+    </div>
+    </div>
+</div>
+{% endblock  %}

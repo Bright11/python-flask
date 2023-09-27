@@ -1,0 +1,11 @@
+<ul class="sidebarul">
+   
+   {% if 'image' in session %}
+   <li class="profil-pic"><a  href="">
+    <img src="{{ url_for('static', filename=session['image']) }}" alt="User Image">
+</a></li>
+   {% endif %}
+    <li><a href="{{ url_for('addblog_page.addblog') }}">My blogs</a></li>
+    <li><a href="">Dashboard</a></li>
+    <li><a href="">Category</a></li>
+</ul>

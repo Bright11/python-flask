@@ -1,0 +1,6 @@
+{% extends 'admin/layout/adminbased.html' %}
+
+
+{% block content %}
+hi
+{% endblock  %}
