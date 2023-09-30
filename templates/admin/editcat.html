@@ -1,0 +1,27 @@
+{% extends 'admin/layout/adminbased.html' %}
+
+{% block content %}
+<div class="add-item-form-div">
+    <div class="table-form">
+    <div class="editform">
+     
+        <form action="" method="post">
+          {{ catform.csrf_token }} 
+         {% with messages=get_flashed_messages() %}
+         
+         {% if messages %}
+          
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+            
+         {% endif %}
+          {% endwith %} 
+          {{ catform.name }}
+          {{ catform.submit }}
+        </form>
+    </div>
+  
+    </div>
+</div>
+{% endblock  %}

@@ -1,0 +1,15 @@
+<div class="topcategory-container">
+    <div class="topcategory-item">
+        
+        {% for mycat in categorydata %}
+       
+       {% if mycat.posts %}
+       <li><a href="">{{mycat.name}}</a></li>
+       {% endif %}
+        
+        {% endfor %}
+            
+       
+      
+    </div>
+</div>

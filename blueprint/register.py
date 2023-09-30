@@ -43,7 +43,7 @@ def register():
                     hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
                     new_user = User(
                     username=form.username.data,
-                    email=form.email.data,
+                    email=form.email.data.lower(),
                     password=hashed_password,
                     image=unique_filename  # Assuming you have a 'profile_image' field in your User model
                 )

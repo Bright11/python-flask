@@ -11,7 +11,7 @@ app=Flask(__name__)
 
 UPLOAD_FOLDER='static/blogsimg'
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
-app.config['ALLOWED_EXTENSIONS']={"png","jpg","jpeg"}
+app.config['ALLOWED_EXTENSIONS']={"png","jfif","jpg","jpeg","webp"}
 
 addblog_page=Blueprint(
     "addblog_page",__name__,
@@ -30,8 +30,6 @@ def addblog():
     post=Post.query.filter_by(user_id=user).all()
     blogform=PostForm()
     if blogform.validate_on_submit():
-        
-        
         # slug
         slug=blogform.title.data.lower()
         slug=slug.replace(' ','-')
@@ -59,8 +57,8 @@ def addblog():
             return redirect(url_for('addblog_page.addblog'))
             
         else:
-            pass
-        pass
+            return redirect(url_for('addblog_page.addblog'))
+        
     else:
         return render_template("admin/addblog.html",blogform=blogform,cat=cat,post=post)
     

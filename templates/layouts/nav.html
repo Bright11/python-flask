@@ -1,20 +1,29 @@
-<nav class="nav-top">
-    {# jjjjjj#}
-    <li><a href="{{ url_for('home_page.home') }}">Chika Nwazuo</a></li>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="{{ url_for('about_page.about') }}">About us</a></li>
-        <li><a href="">Contact us</a></li>
-        
-       
-       {% if 'username' in session %}
-       <li><a href="#"> {{ session['username'] }}</a></li>
-       <li><a href="{{ url_for('logoutuser.logout') }}"> Logout</a></li>
-       <li><a href="{{ url_for('category_page.category') }}">Category</a></li>
-       {% else %}
-       <li><a href="{{ url_for('register_page.register') }}">Register</a></li>
-      
-       {% endif %}
-        
-    </ul>
-</nav>
+<div class="nav-container">
+    <nav class="nav-top">
+        {# jjjjjj#}
+        <li><a href="{{ url_for('home_page.home') }}">Chika Nwazuo</a></li>
+        <ul class="ulnav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{{ url_for('about_page.about') }}">About us</a></li>
+            <li><a href="">Contact us</a></li>
+            <li onclick="dropdown()"><a href="#">Catgory</a></li>
+            
+           
+           {% if 'username' in session %}
+           <li><a href="#"> {{ session['username'] }}</a></li>
+           <li><a href="{{ url_for('logoutuser.logout') }}"> Logout</a></li>
+           <li><a href="{{ url_for('category_page.category') }}">My Post</a></li>
+           {% else %}
+           <li><a href="{{ url_for('register_page.register') }}">Register</a></li>
+          
+           {% endif %}
+           
+        </ul>
+        <button onclick="openmobilnavbar()" class="mobilnavbtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+</div>
+<div class="mytopcat">
+    {% include "layouts/topcategory.html" %}
+  </div>

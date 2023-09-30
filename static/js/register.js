@@ -14,6 +14,17 @@ function openform(){
         table.classList.toggle("closetable")
    
 }
+const ulnav=document.querySelector(".ulnav")
 
+// for categor dropdown
+const dropdowncat=document.querySelector(".mytopcat")
+function dropdown(){
+    dropdowncat.classList.toggle("dropdownnav")
+    ulnav.classList.remove('openmobilnavbar')
+}
 
+// mobile responsivenes
 
+function openmobilnavbar(){
+ulnav.classList.toggle("openmobilnavbar")
+}

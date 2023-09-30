@@ -18,6 +18,7 @@
     margin-bottom: 40px;
     overflow: hidden;
     border: 0.8px solid gray;
+    position: relative;
 }
 .bloc-items a{
     color: black;
@@ -58,3 +59,44 @@
     align-items: center;
     gap: 8px;
 }
+.text-description{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.category-blog{
+    position: absolute;
+    top: 0;
+    background-color: blue;
+    padding: 5px;
+    border-radius: 8px;
+}
+.category-blog p{
+    color: white;
+}
+.catitem-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 8px;
+}
+.viewall{
+    padding: 8px;
+    background-color: blue;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.catitem-container button{
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+
+
+
+

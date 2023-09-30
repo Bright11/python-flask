@@ -1,0 +1,75 @@
+{% extends 'admin/layout/adminbased.html' %}
+
+{% block content %}
+<div class="add-item-form-div">
+    <div class="table-form">
+        <button class="addformbtn" onclick="openform()">Clos</button>
+    <div class="addform-form">
+     
+        <form action="{{ url_for('editblog_page.editblog', id=post.id) }}" method="post" enctype="multipart/form-data">
+          {{ blogform.csrf_token }}
+         {% with messages=get_flashed_messages() %}
+         
+         {% if messages %}
+          
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+            
+         {% endif %}
+          {% endwith %} 
+           {{ blogform.title }}
+           <label for="">Category</label>
+           <select required name="category_id">
+            <option value="{{ post.category.id }}">{{ post.category.name }}</option>
+            {% for c in cat %}
+            <option value="{{ c.id }}">{{c.name}}</option>
+            {% endfor %}
+              
+           </select>
+         
+          <textarea name="content" id="content" cols="30" rows="8">{{ post.content }}</textarea>
+          {#{{ blogform.image }}#}
+          <input type="file" name="image">
+           {{ blogform.submit }}
+        </form>
+    </div>
+    <div class="table-div">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr>
+                <td class="addblogptag">{{post.title}}</td>
+                {#
+                <td class="myblog-img">
+                  <img src="{{ url_for('static', filename='blogsimg/' + post.image) }}" alt="Blog image">
+                </td>
+                
+                #}
+                <td><a href="">Delete</a></td>
+              </tr>
+             
+             {#
+              {% for c in cat %}
+              <td>{{ c.name }}</td>
+              
+              {% for p in c.posts %}
+                <td>{{ p.title }}</td>
+              {% endfor %}
+              
+            {% endfor %}
+             #}
+                
+            </tbody>
+          </table>
+    </div>
+    </div>
+</div>
+{% endblock  %}

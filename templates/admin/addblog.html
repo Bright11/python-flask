@@ -3,7 +3,6 @@
 {% block content %}
 <div class="add-item-form-div">
     <div class="table-form">
-     
         <button class="addformbtn" onclick="openform()">Clos</button>
     <div class="addform-form">
      
@@ -51,11 +50,13 @@
             <tbody>
               {% for p in post %}
               <tr>
-                <td>{{p.title}}</td>
+                <td class="addblogptag"><p>{{p.title}}</p></td>
                 <td class="myblog-img">
                   <img src="{{ url_for('static', filename='blogsimg/' + p.image) }}" alt="Blog image">
                 </td>
-                <td><a href="">Update</a></td>
+                <td>
+                <a href="{{ url_for('editblog_page.editblog', id=p['id']) }}">Update</a>
+                </td>
                 <td><a href="">Delete</a></td>
               </tr>
               {% endfor %}

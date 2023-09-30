@@ -94,7 +94,7 @@
     margin: 0px auto;
     padding: 8px;
 }
-.addform-form form input{
+.addform-form form input,textarea{
     width: 100%;
     padding: 8px;
     border: none;
@@ -126,5 +126,41 @@
     border-radius: 8px;
     object-fit: cover;
 }
+.addblogptag{
+word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+    max-width: 100px;
+}
+
+/* edit form */
+.editform form{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 7px 30px -20px;
+    background-color: white;
+    border-radius: 8px;
+    width: 50%;
+    margin: 50px auto;
+    padding: 8px;
+}
+.editform form input,textarea{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(90, 90, 95);
+    margin: 8px 0px;
+    outline: none;
+    color: white;
+}
+.editform form input[type='submit']{
+    background-color: #7431F9;
+}
+
+
 
 

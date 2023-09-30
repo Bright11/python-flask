@@ -11,17 +11,20 @@ login_form=Blueprint(
 )
 
 
-
-
 @login_form.route('/login',methods=['POST'])
 def login():
     user=User.query.filter_by(email=request.form['email']).first()
     password=bcrypt.check_password_hash(user.password,request.form['password'])
-    if user and password:
-        session['username']=user.username
-        session['image'] = 'images/' + user.image
-        session['email']=user.email,
-        session['user_id']=user.id
-        return redirect(url_for('home_page.home'))
+  
+    if user:
+        if password:
+            session['username']=user.username
+            session['image'] = 'images/' + user.image
+            session['email']=user.email,
+            session['user_id']=user.id
+            return redirect(url_for('home_page.home'))
+        else:
+            return redirect(url_for('register_page.register'))
     else:
         return redirect(url_for('register_page.register'))
+    

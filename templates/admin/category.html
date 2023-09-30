@@ -38,7 +38,7 @@
               {% for cat in category %}
               <tr>
                 <td>{{cat.name}}</td>
-                <td><a href="">Update</a></td>
+                <td><a href="{{ url_for('editcategroy.editcat',id=cat.id) }}">Update</a></td>
                 <td><a href="">Delete</a></td>
               </tr>
               {% endfor %}
