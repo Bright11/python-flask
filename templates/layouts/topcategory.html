@@ -4,7 +4,7 @@
         {% for mycat in categorydata %}
        
        {% if mycat.posts %}
-       <li><a href="">{{mycat.name}}</a></li>
+       <li><a href="{{ url_for('categories_blog.blogcategory',id=mycat.id) }}">{{mycat.name}}</a></li>
        {% endif %}
         
         {% endfor %}

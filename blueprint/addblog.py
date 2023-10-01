@@ -6,6 +6,8 @@ import os
 import uuid as uuid
 import re
 import unicodedata
+# secure pages
+from blueprint.auth import login_required
 
 app=Flask(__name__)
 
@@ -24,6 +26,7 @@ def allowed_file(filename):
         filename.rsplit('.',1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
         
 @addblog_page.route("/addblog",methods=['GET','POST'])
+@login_required
 def addblog():
     user= newsession.get('user_id')
     cat=Category.query.all()

@@ -1,0 +1,85 @@
+{% extends 'layouts/based.html' %}
+
+
+{% block content %}
+<section class="block-container">
+   <div class="blogs-details-page">
+ 
+   <div class="blog-details-item">
+     
+     
+      <div class="blogdetails-info">
+        <div class="detalis-img">
+         <img src="{{ url_for('static', filename='blogsimg/' + blog.image) }}" alt="Blog image">
+        </div>
+        <div class="blog-user-div">
+         <h1>{{ blog.title }}</h1>
+         <div class="blodate">
+            <h1>Posted by: {{ blog.user.username }}</h1>
+            <p class="date"><i class="fa-solid fa-chess-board"></i>{{ blog.date_posted.strftime('%Y-%m-%d') }}</p>
+         </div>
+        </div>
+         <div class="blog-description">
+            <p>{{blog.content}}</p>
+         </div>
+      </div>
+      <div class="comment-form">
+         <form action="" method="post">
+           {# {% csrf_token %}#}
+            <textarea name="comment" cols="60" rows="10" placeholder="Leave a comment"></textarea>
+            <input type="submit">
+         </form>
+      </div>
+      <div class="users-comment">
+         {% for c in comment %}
+         <div class="allcomment">
+         <div class="userprofile">
+          <img src="{{ url_for('static', filename='images/' + c.user.image) }}" alt="user">
+          <h1>{{c.user.username}}</h1>
+         </div>
+         <div class="comment-data">
+          <p>{{c.comment}}</p>
+         </div>
+      </div>
+         {% endfor %}
+      
+         
+      </div>
+   </div>
+   <div class="blog-details-sidebar">
+     <div class="socialmedia-container">
+      <h1>Our social media</h1>
+       <div class="socialmedia">
+     
+         <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+         <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+         <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+         <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+      </div>
+      <h1 class="relatedh1">Related Post</h1>
+      <div class="related-post">
+        {% for r in related_posts %}
+       
+       {% if r.id==blog.id  %}
+         {% else %}
+         <div class="related-post-items">
+            <a href="{{ url_for('blogdetails_page.blogdetails',slug=r.slug) }}">
+               <img src="{{ url_for('static', filename='blogsimg/' + r.image) }}" alt="Blog image">
+            <h1>{{r.title}}</h1>
+            </a>
+         </div>
+       {% endif %}
+         
+        {% endfor %}
+         
+      </div>
+   </div>
+     <div class="detalis-sidebar-content">
+
+     </div>
+   </div>
+
+  
+   </div>
+</section>
+{% endblock  %}

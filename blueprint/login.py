@@ -18,6 +18,7 @@ def login():
   
     if user:
         if password:
+            session['user']="user"
             session['username']=user.username
             session['image'] = 'images/' + user.image
             session['email']=user.email,

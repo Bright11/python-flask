@@ -95,6 +95,139 @@
     font-weight: 800;
 }
 
+/* blogs-details */
+.blogs-details-page{
+    display: flex;
+    gap: 20px;
+}
+.blog-details-item{
+    flex-basis: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 10px;
+}
+.blog-details-sidebar{
+    flex-basis: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* blogdetails-info */
+.detalis-img{
+    text-align: center;
+}
+.detalis-img img{
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
+.blogdetails-info h1{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+}
+.blog-user-div{
+    display: flex;
+    flex-direction: column;
+}
+.blodate{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* socialmedia */
+.socialmedia-container{
+    display: flex;
+    flex-direction: column;
+}
+.socialmedia-container h1{
+    font-size: 15px;
+    font-weight: 300;
+}
+.socialmedia{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.socialmedia li a{
+    background-color: black;
+    padding: 8px;
+    text-align: center;
+}
+.socialmedia i{
+    font-size: 24px;
+    color: white;
+}
+/* related-post-items */
+.related-post-items{
+    box-shadow: 7px 0px 30px -20px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.relatedh1{
+    margin-top: 20px;
+}
+.related-post-items img{
+    width: 100%;
+    border-radius: 8px;
+}
+.related-post-items h1{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+}
+
+/* comment-form */
+.comment-form form{
+    display: flex;
+    flex-direction: column;
+}
+.comment-form form textarea{
+    resize: none;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    outline: none;
+}
+.comment-form form input[type="submit"]{
+    background-color: blue;
+    outline: none;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+/* users-comment */
+.users-comment{
+    display: flex;
+    flex-direction: column;
+    margin:30px 0px;
+}
+.allcomment{
+    display: flex;
+    gap: 20px;
+    max-width: 800px;
+    box-shadow: 7px 0px 30px -20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 8px;
+}
+.userprofile img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+.userprofile h1{
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+}
 
 
 

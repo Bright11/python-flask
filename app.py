@@ -9,8 +9,8 @@ from blueprint.category import category_page
 from blueprint.addblog import addblog_page
 from blueprint.editblog import editblog_page
 from blueprint.editcat import editcategroy
-
-
+from blueprint.blogcategory import categories_blog
+from blueprint.blogdetails import blogdetails_page
 
 # 
 
@@ -25,7 +25,8 @@ app.register_blueprint(category_page)
 app.register_blueprint(addblog_page)
 app.register_blueprint(editblog_page)
 app.register_blueprint(editcategroy)
-
+app.register_blueprint(categories_blog)
+app.register_blueprint(blogdetails_page)
 
 
 app.config['SECRET_KEY']='secret'

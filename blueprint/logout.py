@@ -8,6 +8,7 @@ logoutuser=Blueprint(
 
 @logoutuser.route('/logout')
 def logout():
+    session.pop('user',None)
     session.pop('username',None)
     session.pop('image',None)
     session.pop('email',None)

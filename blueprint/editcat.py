@@ -2,12 +2,15 @@ from flask import Flask, url_for,redirect,Blueprint,request,render_template
 
 from forms import CategoryForm
 from models import Category,db
+# secure pages
+from blueprint.auth import login_required
 
 editcategroy=Blueprint(
     'editcategroy',__name__ 
 )
 
 @editcategroy.route('/editcat<int:id>',methods=['GET','POST'])
+@login_required
 def editcat(id):
     #cat=db.session.query(Category).filter_by(id=id).first()
     cat=Category.query.get_or_404(id)

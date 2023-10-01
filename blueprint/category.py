@@ -1,11 +1,15 @@
 from flask import Flask,url_for,redirect,flash,Blueprint,render_template,request
 from forms import CategoryForm
 from models import Category,db
+# secure pages
+from blueprint.auth import login_required
+
 category_page=Blueprint(
     'category_page',__name__
 )
 
 @category_page.route('/category',methods=['GET','POST'])
+@login_required
 def category():
     catform=CategoryForm()
     if catform.validate_on_submit():

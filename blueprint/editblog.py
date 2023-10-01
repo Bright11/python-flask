@@ -6,6 +6,8 @@ import os
 import uuid as uuid
 import re
 import unicodedata
+# secure pages
+from blueprint.auth import login_required
 
 app=Flask(__name__)
 
@@ -26,6 +28,7 @@ def allowed_file(filename):
 
 
 @editblog_page.route('/editblog/<int:id>',methods=["GET","POST"])
+@login_required
 def editblog(id):
     # post=Post.query.get_or_404(id)
     post=Post.query.get_or_404(id)
