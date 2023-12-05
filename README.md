@@ -1,1 +1,1 @@
-## Flask web application
+## Flask blog web application
